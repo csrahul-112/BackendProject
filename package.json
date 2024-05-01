@@ -1,0 +1,16 @@
+{
+  "name": "mainprojectbackend",
+  "version": "1.0.0",
+  "description": "This is a big backend project with a lot of functionalities for learning",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "backend",
+    "node",
+    "cac"
+  ],
+  "author": "Rahul Kumar",
+  "license": "ISC"
+}
