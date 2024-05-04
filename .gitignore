@@ -117,4 +117,8 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+
+# notes to study in bw
+notes.md
+
 # End of https://mrkandreev.name/snippets/gitignore-generator/#Node
