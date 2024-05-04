@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "",
-    "dev": "nodemon src/index.js",
+    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -23,6 +23,7 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "mongodb": "^6.6.0",
     "mongoose": "^8.3.3"
   }
 }
