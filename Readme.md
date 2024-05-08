@@ -11,7 +11,7 @@ This repository contains the backend code for a web application similar to YouTu
     <pre>
         cd BackendProject
     </pre>
-        or
+    or
 - navigate to the directory of this project
 3. Install dependencies:
     npm install
