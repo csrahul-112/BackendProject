@@ -9,20 +9,22 @@ This repository contains the backend code for a web application similar to YouTu
    git clone https://github.com/csrahul-112/BackendProject.git
 2. Navigate to the project directory:
     <pre>
-        cd BackendProject
-    </pre>
+        cd BackendProject</pre>
     or
 - navigate to the directory of this project
 3. Install dependencies:
-    npm install
+    <pre>
+    npm install</pre>
 ## <b>Usage</b>
 * <b>Development Mode:</b>
     Run the following command to start the server in development mode with hot-reloading:<br> 
-    npm run dev
+    <pre>
+    npm run dev</pre>
 
 * <b>Production Mode:</b>
     To run the server in production mode, use:<br>
-    npm start<br>
+    <pre>
+    npm start</pre><br>
     *<b>Right now There is no Script to run the project you can add Yours</b>*
 * <b>Testing:</b> Currently, there are no specific tests implemented. You can add your own testing setup as per your project requirements.
     
