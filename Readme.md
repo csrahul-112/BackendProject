@@ -1,3 +1,3 @@
 # This is a backend project 
-# developed using Node
+# developed using Nodejs
 

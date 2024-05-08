@@ -73,13 +73,13 @@ const registerUser = asyncHandler( async (req, res) => {
     const coverImage = await uploadOnCloudinary(coverImageLocalPath)
     
     if (!avatar) {
-        throw new ApiError(400, "Avatar File is required")
+        throw new ApiError(400, "Error while uploading Avatar")
     }
 
     const user = await User.create({
         fullname,
         avatar: avatar.url,
-        coverImage: coverImage || "",
+        coverImage: coverImage.url || "",
         email,
         password,
         username : username.toLowerCase()
@@ -229,12 +229,63 @@ const refreshAccessToken = asyncHandler(async (req, res) =>{
 
 })
 
+const changeCurrentPassword = asyncHandler(async(req, res) => {
+    const {oldPassword, newPassword} = req.body
+
+    const user = await User.findById(req.user?._id)
+    const isOldPasswordCorrect = await user.isPasswordCorrect(oldPassword)
+
+    if(!isOldPasswordCorrect){
+        throw new ApiError(400, "Wrong Old Password")
+    }
+
+    user.password = newPassword
+    await user.save({validateBeforeSave: false})
+
+    return res
+    .status(200)
+    .json(new ApiResponse(200, {}, "Password Changed Successfully"))
+})
 
 
+const getCurrentUser = asyncHandler(async(req, res) => {
+    return res
+    .status(200)
+    .json(200, req.user, "current user fetched successfully")
+})
+
+const updateAccountDetails = asyncHandler(async(req, res) => {
+    const {fullname, email} = req.body
+    if(!fullname || !email){
+        throw new ApiError(400, "All fields are required")
+    }
+
+    const user = User.findByIdAndUpdate(
+        req.user?._id,
+        {
+            $set: {
+                fullname: fullname,
+                email: email
+            }
+        },
+        {new: true}
+    ).select("-password -refreshToken")
+
+    return res.status
+    .status(200)
+    .json(new ApiResponse(200, "Account Details Updated Successfully"))
+})
+
+const updateUserAvatar = asyncHandler(async(req, res) => {
+
+})
 
 export { 
     registerUser,
     loginUser,
     logoutUser,
-    refreshAccessToken
+    refreshAccessToken,
+    changeCurrentPassword,
+    getCurrentUser,
+    updateAccountDetails
  }
