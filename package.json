@@ -12,7 +12,8 @@
   "keywords": [
     "backend",
     "node",
-    "cac"
+    "cloudinary",
+    "mongodb"
   ],
   "author": "Rahul Kumar",
   "license": "ISC",
